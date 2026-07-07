@@ -3,6 +3,7 @@ import { Roboto, Roboto_Slab } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import MobileMenu from "./_components/MobileMenu";
+import { navLinks, footerLinks } from "./_lib/nav";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -26,17 +27,6 @@ export const metadata: Metadata = {
     apple: "/images/favicon.png",
   },
 };
-
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/our-people", label: "Our People" },
-  { href: "/events", label: "Events" },
-  { href: "/reports", label: "Reports" },
-  { href: "/activities", label: "Activities" },
-  { href: "/newsletters", label: "Newsletters" },
-  { href: "/join", label: "Become a Member" },
-  { href: "/contact", label: "Contact" },
-];
 
 const socialLinks = [
   { href: "https://facebook.com/CivicSociety", label: "Facebook", icon: FacebookIcon },
@@ -96,16 +86,7 @@ function Footer() {
           <div>
             <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-secondary-light">Site Navigation</h4>
             <nav className="flex flex-col gap-2">
-              {[
-                { href: "/", label: "Home" },
-                { href: "/our-people", label: "Our People" },
-                { href: "/events", label: "Events" },
-                { href: "/reports", label: "Reports" },
-                { href: "/activities", label: "Activities" },
-                { href: "/newsletters", label: "Newsletters" },
-                { href: "/join", label: "Membership" },
-                { href: "/contact", label: "Contact" },
-              ].map((link) => (
+              {footerLinks.map((link) => (
                 <Link key={link.href} href={link.href} className="text-sm text-white/70 transition-colors hover:text-white">
                   {link.label}
                 </Link>

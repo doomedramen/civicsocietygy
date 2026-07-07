@@ -1,4 +1,5 @@
 import PageBanner from "@/app/_components/PageBanner";
+import Section from "@/app/_components/Section";
 
 const activities = [
   {
@@ -38,27 +39,25 @@ export default function ActivitiesPage() {
     <>
       <PageBanner title="Activities" />
 
-      <section className="py-16 sm:py-24">
-        <div className="mx-auto max-w-5xl px-6">
-          <p className="mx-auto mb-16 max-w-2xl text-center text-lg leading-relaxed text-gray-600">
-            The society undertakes a range of activities to promote and enhance our
-            town. There are plenty of ways to get involved, whether you have an hour
-            to spare or would like to take on a larger role.
-          </p>
+      <Section width="lg">
+        <p className="mx-auto mb-16 max-w-2xl text-center text-lg leading-relaxed text-gray-600">
+          The society undertakes a range of activities to promote and enhance our
+          town. There are plenty of ways to get involved, whether you have an hour
+          to spare or would like to take on a larger role.
+        </p>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {activities.map((activity) => (
-              <div
-                key={activity.title}
-                className="group rounded-xl border border-gray-100 bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
-              >
-                <h3 className="mb-3 text-xl font-bold text-primary">{activity.title}</h3>
-                <p className="leading-relaxed text-gray-600">{activity.description}</p>
-              </div>
-            ))}
-          </div>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {activities.map((activity) => (
+            <div
+              key={activity.title}
+              className="group rounded-xl border border-gray-100 bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+            >
+              <h3 className="mb-3 text-xl font-bold text-primary">{activity.title}</h3>
+              <p className="leading-relaxed text-gray-600">{activity.description}</p>
+            </div>
+          ))}
         </div>
-      </section>
+      </Section>
     </>
   );
 }

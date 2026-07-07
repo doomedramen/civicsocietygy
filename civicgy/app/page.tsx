@@ -1,6 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import Rule from "./_components/Rule";
+import SectionHeading from "./_components/SectionHeading";
+import { Button } from "./_components/Button";
+import Section from "./_components/Section";
 
 const galleryImages = [
   { id: 1, color: "from-slate-700 to-slate-500", label: "Town Wall" },
@@ -32,18 +34,8 @@ export default function HomePage() {
             buildings, its streets, its story, and its future.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <Link
-              href="/join"
-              className="rounded-lg bg-secondary px-6 py-3 font-medium text-white transition-colors hover:bg-secondary-dark"
-            >
-              Become a Member
-            </Link>
-            <Link
-              href="/contact"
-              className="rounded-lg border border-white/25 px-6 py-3 font-medium text-white transition-colors hover:bg-white/10"
-            >
-              Get in Touch
-            </Link>
+            <Button href="/join">Become a Member</Button>
+            <Button href="/contact" variant="outline">Get in Touch</Button>
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
@@ -51,13 +43,8 @@ export default function HomePage() {
 
       <section className="bg-cream py-20 sm:py-28">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-secondary">
-            A note from our Chairman
-          </p>
-          <h2 className="mb-8 text-3xl font-bold text-primary sm:text-4xl">
-            Welcome
-          </h2>
-          <div className="space-y-5 text-left leading-relaxed text-gray-700">
+          <SectionHeading overline="A note from our Chairman" title="Welcome" />
+          <div className="-mt-4 space-y-5 text-left leading-relaxed text-gray-700">
             <p>
               The Civic Society of Great Yarmouth was founded to develop civic pride
               in the town. Our aims are not just about pride in the town&rsquo;s
@@ -92,31 +79,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <p className="mb-2 text-center text-xs font-medium uppercase tracking-[0.2em] text-secondary">
-            A few sights around the town
-          </p>
-          <h2 className="mb-12 text-center text-3xl font-bold text-primary sm:text-4xl">
-            Gallery
-          </h2>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {galleryImages.map((img) => (
-              <div
-                key={img.id}
-                className="group relative aspect-[3/2] overflow-hidden rounded-lg"
-              >
-                <div className={`absolute inset-0 bg-gradient-to-br ${img.color}`} />
-                <div className="absolute inset-0 flex items-end bg-black/0 p-4 transition-colors group-hover:bg-black/30">
-                  <span className="translate-y-2 text-sm font-medium text-white opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
-                    {img.label}
-                  </span>
-                </div>
+      <Section width="xl" className="text-center">
+        <SectionHeading overline="A few sights around the town" title="Gallery" />
+        <div className="-mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {galleryImages.map((img) => (
+            <div
+              key={img.id}
+              className="group relative aspect-[3/2] overflow-hidden rounded-lg"
+            >
+              <div className={`absolute inset-0 bg-gradient-to-br ${img.color}`} />
+              <div className="absolute inset-0 flex items-end bg-black/0 p-4 transition-colors group-hover:bg-black/30">
+                <span className="translate-y-2 text-sm font-medium text-white opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+                  {img.label}
+                </span>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      </section>
+      </Section>
 
       <div className="mx-auto max-w-7xl px-6">
         <Rule />
@@ -124,23 +104,17 @@ export default function HomePage() {
 
       <section className="bg-primary py-20 text-white sm:py-28">
         <div className="mx-auto max-w-2xl px-6 text-center">
-          <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-secondary-light">
-            Membership
-          </p>
-          <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
-            Join the Society
-          </h2>
-          <p className="mb-8 text-lg leading-relaxed text-white/75">
+          <SectionHeading
+            overline="Membership"
+            title="Join the Society"
+            theme="dark"
+          />
+          <p className="-mt-4 mb-8 text-lg leading-relaxed text-white/75">
             Membership costs &pound;10 a year. It&rsquo;s a small contribution, but
             together it helps us do a great deal for the town. We&rsquo;d be
             delighted to have you with us.
           </p>
-          <Link
-            href="/join"
-            className="inline-block rounded-lg bg-secondary px-8 py-3 font-medium text-white transition-colors hover:bg-secondary-dark"
-          >
-            Find Out More
-          </Link>
+          <Button href="/join" size="lg">Find Out More</Button>
         </div>
       </section>
     </>

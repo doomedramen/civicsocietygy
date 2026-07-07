@@ -1,4 +1,7 @@
 import PageBanner from "@/app/_components/PageBanner";
+import Section from "@/app/_components/Section";
+import EmptyState from "@/app/_components/EmptyState";
+import { Badge } from "@/app/_components/Card";
 
 const pastEvents = [
   {
@@ -29,41 +32,31 @@ export default function EventsPage() {
     <>
       <PageBanner title="Events" />
 
-      <section className="py-16 sm:py-24">
-        <div className="mx-auto max-w-4xl px-6">
-          <h2 className="mb-10 text-2xl font-bold text-primary">Upcoming Events</h2>
+      <Section width="md">
+        <h2 className="mb-8 text-2xl font-bold text-primary">Upcoming Events</h2>
 
-          <div className="rounded-xl border border-dashed border-gray-200 bg-gray-50 p-12 text-center">
-            <p className="text-lg text-gray-500">
-              We&rsquo;re finalising our 2025 programme at the moment.
-            </p>
-            <p className="mt-2 text-sm leading-relaxed text-gray-400">
-              Details of talks, walks, and gatherings will be posted here and on our
-              social media once dates are confirmed. Do check back &mdash; or better
-              yet, follow us on Facebook or LinkedIn where we announce things first.
-            </p>
-          </div>
+        <EmptyState
+          title="We're finalising our 2025 programme at the moment."
+          description="Details of talks, walks, and gatherings will be posted here and on our social media once dates are confirmed. Do check back — or better yet, follow us on Facebook or LinkedIn where we announce things first."
+        />
 
-          <h2 className="mb-10 mt-20 text-2xl font-bold text-primary">Past Events</h2>
-          <div className="space-y-4">
-            {pastEvents.map((event, i) => (
-              <div
-                key={i}
-                className="rounded-lg border border-gray-100 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
-              >
-                <span className="inline-block rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-500">
-                  {event.date}
-                </span>
-                <h3 className="mt-3 text-xl font-bold text-primary">{event.title}</h3>
-                {event.speaker && (
-                  <p className="text-sm font-medium text-secondary">{event.speaker}</p>
-                )}
-                <p className="mt-2 leading-relaxed text-gray-600">{event.description}</p>
-              </div>
-            ))}
-          </div>
+        <h2 className="mb-8 mt-16 text-2xl font-bold text-primary">Past Events</h2>
+        <div className="space-y-4">
+          {pastEvents.map((event, i) => (
+            <div
+              key={i}
+              className="rounded-lg border border-gray-100 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+            >
+              <Badge variant="default">{event.date}</Badge>
+              <h3 className="mt-3 text-xl font-bold text-primary">{event.title}</h3>
+              {event.speaker && (
+                <p className="text-sm font-medium text-secondary">{event.speaker}</p>
+              )}
+              <p className="mt-2 leading-relaxed text-gray-600">{event.description}</p>
+            </div>
+          ))}
         </div>
-      </section>
+      </Section>
     </>
   );
 }

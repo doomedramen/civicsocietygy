@@ -1,27 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { useState } from "react";
 import Link from "next/link";
-
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/our-people", label: "Our People" },
-  { href: "/events", label: "Events" },
-  { href: "/reports", label: "Reports" },
-  { href: "/activities", label: "Activities" },
-  { href: "/newsletters", label: "Newsletters" },
-  { href: "/join", label: "Become a Member" },
-  { href: "/contact", label: "Contact" },
-];
+import { navLinks } from "../_lib/nav";
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
 
   return (
     <div className="lg:hidden">
@@ -43,7 +27,7 @@ export default function MobileMenu() {
 
       {open && (
         <nav className="absolute left-0 right-0 top-full border-t border-white/10 bg-primary shadow-lg">
-          {links.map((link) => (
+          {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
