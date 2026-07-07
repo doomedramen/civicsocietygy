@@ -13,8 +13,9 @@ export default function NewslettersPage() {
       <section className="py-16 sm:py-24">
         <div className="mx-auto max-w-5xl px-6">
           <p className="mx-auto mb-16 max-w-2xl text-center text-lg leading-relaxed text-gray-600">
-            All our newsletters are listed below. Browse through our archive to
-            catch up on past updates and activities.
+            Our newsletters are listed below. There are quite a few of them, so
+            they&rsquo;re spread across several pages. Use the Download button
+            next to each one to view or save a copy.
           </p>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

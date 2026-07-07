@@ -29,6 +29,22 @@ export default function ContactPage() {
                 </select>
               </div>
 
+              <div>
+                <label htmlFor="enquiry-type" className="mb-1 block text-sm font-medium text-gray-700">
+                  Enquiry Type <span className="text-red-500">*</span>
+                </label>
+                <select
+                  id="enquiry-type"
+                  required
+                  className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
+                >
+                  <option value="">Please select</option>
+                  <option value="general">General Enquiries</option>
+                  <option value="membership">Membership Enquiries</option>
+                  <option value="website">Website &amp; Marketing Enquiries</option>
+                </select>
+              </div>
+
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label htmlFor="first-name" className="mb-1 block text-sm font-medium text-gray-700">

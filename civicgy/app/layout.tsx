@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Roboto, Roboto_Slab } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import MobileMenu from "./_components/MobileMenu";
@@ -11,10 +11,16 @@ const roboto = Roboto({
   variable: "--font-roboto",
 });
 
+const robotoSlab = Roboto_Slab({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-roboto-slab",
+});
+
 export const metadata: Metadata = {
   title: "Civic Society of Great Yarmouth",
   description:
-    "Promoting civic pride in Great Yarmouth's buildings, architecture, environment, and community.",
+    "A society for everyone who cares about Great Yarmouth — its buildings, its streets, its story, and its future.",
   icons: {
     icon: "/images/favicon.png",
     apple: "/images/favicon.png",
@@ -41,7 +47,7 @@ const socialLinks = [
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${roboto.variable} h-full`}>
+    <html lang="en" className={`${roboto.variable} ${robotoSlab.variable} h-full`}>
       <body className="flex min-h-full flex-col bg-white font-sans text-gray-900 antialiased">
         <Header />
         <main className="flex-1">{children}</main>
@@ -157,8 +163,8 @@ function Footer() {
             className="h-auto w-56 opacity-90 sm:w-72"
           />
         </div>
-        <div className="border-t border-white/10 pt-6 text-center text-xs text-white/50">
-          © {new Date().getFullYear()} Civic Society of Great Yarmouth. All rights reserved.
+        <div className="border-t border-white/10 pt-6 text-center text-xs text-white/40">
+          &copy; {new Date().getFullYear()} The Civic Society of Great Yarmouth
         </div>
       </div>
     </footer>

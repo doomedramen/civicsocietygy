@@ -7,32 +7,33 @@ export default function CookiesPage() {
       <section className="py-16 sm:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <div className="prose prose-gray max-w-none">
-            <h2>Cookies Policy</h2>
-            <p>
-              This website uses cookies to enhance your browsing experience. By
-              continuing to use this site, you consent to our use of cookies.
+            <p className="leading-relaxed text-gray-600">
+              Like most websites these days, this one uses a few small cookies to
+              work properly. Here&rsquo;s a straightforward explanation.
             </p>
-            <h3>What Are Cookies?</h3>
-            <p>
-              Cookies are small text files that are placed on your computer by
-              websites you visit. They are widely used to make websites work more
-              efficiently and to provide information to site owners.
+            <h3 className="mt-8 text-lg font-bold text-primary">What Is a Cookie?</h3>
+            <p className="leading-relaxed text-gray-600">
+              A cookie is a tiny text file that a website places on your computer or
+              phone when you visit. They&rsquo;ve been around for decades and are
+              used by practically every website on the internet.
             </p>
-            <h3>How We Use Cookies</h3>
-            <p>
-              We use essential cookies to ensure the proper functioning of our
-              website. We may also use analytics cookies to understand how visitors
-              use our site, which helps us improve our content and user experience.
+            <h3 className="mt-8 text-lg font-bold text-primary">How We Use Them</h3>
+            <p className="leading-relaxed text-gray-600">
+              We only use essential cookies to make sure the site functions
+              correctly. We may also use a simple analytics cookie to get a rough
+              idea of how many people visit and which pages they look at &mdash;
+              this helps us improve the site.
             </p>
-            <h3>Managing Cookies</h3>
-            <p>
-              Most web browsers allow you to control cookies through their settings.
-              You can choose to block or delete cookies, but this may affect the
-              functionality of certain websites.
+            <h3 className="mt-8 text-lg font-bold text-primary">Turning Them Off</h3>
+            <p className="leading-relaxed text-gray-600">
+              If you&rsquo;d rather not have cookies, your browser lets you block or
+              delete them. You&rsquo;ll find the settings under Preferences or
+              Privacy in your browser menu. Do be aware that blocking them may
+              affect how some websites work.
             </p>
-            <p>
-              For more information about how we handle your data, please see our{" "}
-              <a href="/privacy" className="text-secondary">
+            <p className="mt-8 leading-relaxed text-gray-600">
+              For more detail on how we handle your data, have a look at our{" "}
+              <a href="/privacy" className="text-secondary underline">
                 Privacy Policy
               </a>
               .

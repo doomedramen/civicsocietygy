@@ -8,6 +8,7 @@
   --color-secondary-dark: #4a6d85;
   --color-cream: #f8f7f4;
   --font-sans: var(--font-roboto);
+  --font-serif: var(--font-roboto-slab);
 }
 
 * {

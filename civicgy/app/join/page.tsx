@@ -10,8 +10,9 @@ export default function JoinPage() {
           <div className="mb-12 rounded-xl bg-cream p-8 sm:p-10">
             <h2 className="mb-6 text-2xl font-bold text-primary">Membership Details</h2>
             <p className="mb-4 leading-relaxed text-gray-700">
-              To become a member of the Civic Society, it costs <strong>&pound;10 annually</strong>.
-              You can pay us either by cheque or by BACS &mdash; details below.
+              Membership costs just <strong>&pound;10 a year</strong>. You can pay
+              by cheque or by BACS &mdash; whichever suits you best. Details for
+              both are below.
             </p>
 
             <div className="mt-8 space-y-6">
@@ -161,9 +162,12 @@ export default function JoinPage() {
 
               <fieldset>
                 <legend className="mb-4 text-lg font-semibold text-primary">
-                  Step 2: Gift Aid Declaration
+                  Step 2: Charity Gift Aid Declaration
                 </legend>
                 <div className="rounded-lg bg-cream p-6">
+                  <p className="mb-4 text-sm font-medium text-secondary">
+                    Boost your donation by 25p of Gift Aid for every &pound;1 you donate.
+                  </p>
                   <p className="mb-4 text-sm text-gray-600">
                     Gift Aid is reclaimed by the charity from the tax you pay for
                     the current tax year. Your address is needed to identify you as a
@@ -197,6 +201,15 @@ export default function JoinPage() {
                       </span>
                     </label>
                   </div>
+                  <p className="mt-6 text-xs leading-relaxed text-gray-500">
+                    Please notify the Civic Society of Great Yarmouth if you: want
+                    to cancel this declaration, change your name or home address, or
+                    no longer pay sufficient tax on your income and/or capital gains.
+                    If you pay Income Tax at the higher or additional rate and want
+                    to receive the additional tax relief due to you, you must include
+                    all your Gift Aid donations on your Self-Assessment tax return or
+                    ask HM Revenue and Customs to adjust your tax code.
+                  </p>
                 </div>
               </fieldset>
 

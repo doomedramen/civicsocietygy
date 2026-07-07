@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Rule from "./_components/Rule";
 
 const galleryImages = [
   { id: 1, color: "from-slate-700 to-slate-500", label: "Town Wall" },
@@ -16,19 +17,19 @@ export default function HomePage() {
   return (
     <>
       <section className="relative overflow-hidden bg-primary py-24 text-white sm:py-32">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary opacity-40" />
-          <div className="relative mx-auto max-w-4xl px-6 text-center">
-            <Image
-              src="/images/logo-white.png"
-              alt="Civic Society of Great Yarmouth"
-              width={480}
-              height={73}
-              className="mx-auto mb-8 h-auto w-72 sm:w-96 lg:w-[480px]"
-              priority
-            />
-          <p className="mx-auto max-w-2xl text-lg leading-relaxed text-white/80">
-            Developing civic pride in our town &mdash; its buildings, environment,
-            heritage, and community.
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary opacity-30" />
+        <div className="relative mx-auto max-w-4xl px-6 text-center">
+          <Image
+            src="/images/logo-white.png"
+            alt="Civic Society of Great Yarmouth"
+            width={480}
+            height={73}
+            className="mx-auto mb-10 h-auto w-72 sm:w-96 lg:w-[480px]"
+            priority
+          />
+          <p className="mx-auto max-w-xl text-lg leading-relaxed text-white/75 sm:text-xl">
+            A society for everyone who cares about Great Yarmouth &mdash; its
+            buildings, its streets, its story, and its future.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link
@@ -39,16 +40,20 @@ export default function HomePage() {
             </Link>
             <Link
               href="/contact"
-              className="rounded-lg border border-white/30 px-6 py-3 font-medium text-white transition-colors hover:bg-white/10"
+              className="rounded-lg border border-white/25 px-6 py-3 font-medium text-white transition-colors hover:bg-white/10"
             >
               Get in Touch
             </Link>
           </div>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
       </section>
 
       <section className="bg-cream py-20 sm:py-28">
         <div className="mx-auto max-w-3xl px-6 text-center">
+          <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-secondary">
+            A note from our Chairman
+          </p>
           <h2 className="mb-8 text-3xl font-bold text-primary sm:text-4xl">
             Welcome
           </h2>
@@ -62,9 +67,9 @@ export default function HomePage() {
             </p>
             <p>
               The society wants to hear about the town&rsquo;s good and bad points
-              from the people who live and work there. What does it do well? Where
-              could improvements be made? How can it be made a more welcoming place
-              and boost the local economy.
+              from the people who live and work here. What does it do well? Where
+              could improvements be made? How can we make it a more welcoming place
+              and give the local economy a boost.
             </p>
             <p>
               Great Yarmouth has a rich heritage, a vibrancy, and a very high
@@ -73,26 +78,25 @@ export default function HomePage() {
             </p>
             <p>
               Thank you for taking the time to visit our website. Here you can find
-              digital copies of our Annual Report, Regeneration Report and many other
-              pieces of information about what we do. If you would like to find
-              something out that is not listed on our website, please get in touch
-              with us via our contact page.
+              digital copies of our Annual Report, Regeneration Report and a good
+              deal of other information about what we do. If you would like to find
+              out something that isn&rsquo;t listed on our website, please do get in
+              touch via our contact page.
             </p>
           </div>
-          <p className="mt-8 font-medium text-primary">
-            Best wishes,
-          </p>
-          <p className="font-bold text-primary">
-            Hugh Sturzaker MBE
-          </p>
-          <p className="text-sm text-gray-500">
-            Chair of The Civic Society of Great Yarmouth
-          </p>
+          <div className="mt-8">
+            <p className="font-medium text-primary">Best wishes,</p>
+            <p className="font-bold text-primary">Hugh Sturzaker MBE</p>
+            <p className="text-sm text-gray-400">Chair, The Civic Society of Great Yarmouth</p>
+          </div>
         </div>
       </section>
 
       <section className="py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-6">
+          <p className="mb-2 text-center text-xs font-medium uppercase tracking-[0.2em] text-secondary">
+            A few sights around the town
+          </p>
           <h2 className="mb-12 text-center text-3xl font-bold text-primary sm:text-4xl">
             Gallery
           </h2>
@@ -102,9 +106,7 @@ export default function HomePage() {
                 key={img.id}
                 className="group relative aspect-[3/2] overflow-hidden rounded-lg"
               >
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${img.color}`}
-                />
+                <div className={`absolute inset-0 bg-gradient-to-br ${img.color}`} />
                 <div className="absolute inset-0 flex items-end bg-black/0 p-4 transition-colors group-hover:bg-black/30">
                   <span className="translate-y-2 text-sm font-medium text-white opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
                     {img.label}
@@ -116,20 +118,28 @@ export default function HomePage() {
         </div>
       </section>
 
+      <div className="mx-auto max-w-7xl px-6">
+        <Rule />
+      </div>
+
       <section className="bg-primary py-20 text-white sm:py-28">
-        <div className="mx-auto max-w-4xl px-6 text-center">
+        <div className="mx-auto max-w-2xl px-6 text-center">
+          <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-secondary-light">
+            Membership
+          </p>
           <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
-            Get Involved
+            Join the Society
           </h2>
-          <p className="mb-10 text-lg leading-relaxed text-white/80">
-            Join us in making Great Yarmouth an even better place to live, work, and
-            visit. Membership costs just &pound;10 per year.
+          <p className="mb-8 text-lg leading-relaxed text-white/75">
+            Membership costs &pound;10 a year. It&rsquo;s a small contribution, but
+            together it helps us do a great deal for the town. We&rsquo;d be
+            delighted to have you with us.
           </p>
           <Link
             href="/join"
             className="inline-block rounded-lg bg-secondary px-8 py-3 font-medium text-white transition-colors hover:bg-secondary-dark"
           >
-            Join Us Today
+            Find Out More
           </Link>
         </div>
       </section>

@@ -4,7 +4,7 @@ const pastMeetings2024 = [
   {
     date: "December 2024",
     title: "End of Year Review",
-    description: "A review of the society's achievements throughout 2024 and discussion of plans for the coming year.",
+    description: "A look back at what the society achieved in 2024, and a discussion of plans for the year ahead.",
   },
   {
     date: "November 2024",
@@ -33,11 +33,13 @@ export default function MeetingsPage() {
           <h2 className="mb-8 text-2xl font-bold text-primary">Upcoming Meetings</h2>
 
           <div className="rounded-xl border border-dashed border-gray-200 bg-gray-50 p-12 text-center">
-            <p className="text-lg text-gray-500">Please come back soon.</p>
+            <p className="text-lg text-gray-500">
+              We&rsquo;ll be publishing details of the next set of meetings shortly.
+            </p>
             <p className="mt-2 leading-relaxed text-gray-400">
-              There will be more meetings announced for the new year. See our 2024
-              archive below to see what meetings we held. Full details of new
-              meetings will be published on this page and on our social media.
+              In the meantime, you can see what we got up to in 2024 below, and
+              we&rsquo;ll announce new dates here and on our social media as soon as
+              they&rsquo;re confirmed.
             </p>
           </div>
 
