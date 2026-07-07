@@ -47,8 +47,8 @@ const socialLinks = [
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${roboto.variable} ${robotoSlab.variable} h-full`}>
-      <body className="flex min-h-full flex-col bg-white font-sans text-gray-900 antialiased">
+    <html lang="en" className={`${roboto.variable} ${robotoSlab.variable}`}>
+      <body className="flex min-h-screen flex-col bg-white font-sans text-gray-900 antialiased">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
