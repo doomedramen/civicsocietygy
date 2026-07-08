@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import PageBanner from "@/app/_components/PageBanner";
 import Section from "@/app/_components/Section";
 import { Card } from "@/app/_components/Card";
 import { Avatar } from "@/app/_components/Avatar";
+
+export const metadata: Metadata = {
+  title: "Our People",
+  description:
+    "Meet the President, management team, and committee members who run the Civic Society of Great Yarmouth.",
+};
 
 const management = [
   {

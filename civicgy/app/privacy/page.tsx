@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import PageBanner from "@/app/_components/PageBanner";
 import Section from "@/app/_components/Section";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "How the Civic Society of Great Yarmouth collects, uses, and protects your personal information.",
+};
 
 export default function PrivacyPage() {
   return (

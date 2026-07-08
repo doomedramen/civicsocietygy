@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import PageBanner from "@/app/_components/PageBanner";
 import Section from "@/app/_components/Section";
+
+export const metadata: Metadata = {
+  title: "Activities",
+  description:
+    "Heritage walks, conservation work, public consultations, and other ways the Civic Society of Great Yarmouth gets involved in the town.",
+};
 
 const activities = [
   {

@@ -5,15 +5,15 @@ import { Button } from "./_components/Button";
 import Section from "./_components/Section";
 
 const galleryImages = [
-  "496.jpg",
-  "573.jpg",
-  "609-1.jpg",
-  "620.jpg",
-  "828.jpg",
-  "IMG_7480.jpg",
-  "IMG_7543.jpg",
-  "IMG_7559.jpg",
-  "IMG_7561.jpg",
+  { file: "496.jpg", alt: "A historic signpost in Great Yarmouth pointing the way to the Tollhouse Museum, Row III House, Old Merchants House, Elizabethan House Museum, and Hall Quay" },
+  { file: "573.jpg", alt: "The Minster Church of St Nicholas, Great Yarmouth, seen across its churchyard" },
+  { file: "609-1.jpg", alt: "A flint and stone medieval building in Great Yarmouth with a coat of arms above the entrance" },
+  { file: "620.jpg", alt: "A heritage information sign describing Great Yarmouth's medieval town wall, with one of its surviving towers behind" },
+  { file: "828.jpg", alt: "A wide view of the Minster Church of St Nicholas, Great Yarmouth, with gravestones in the foreground" },
+  { file: "IMG_7480.jpg", alt: "A black-and-white timber-framed hotel building on a Great Yarmouth street, with the Nelson Bar sign hanging outside" },
+  { file: "IMG_7543.jpg", alt: "The decorative tiled entrance of the former Municipal School of Art in Great Yarmouth" },
+  { file: "IMG_7559.jpg", alt: "The brick almshouses of the Fishermen's Hospital in Great Yarmouth, with a commemorative plaque on the wall" },
+  { file: "IMG_7561.jpg", alt: "A close-up of the Fishermen's Hospital in Great Yarmouth, showing its benefactors' plaque and chimneys" },
 ];
 
 export default function HomePage() {
@@ -83,14 +83,14 @@ export default function HomePage() {
       <Section width="xl" className="text-center">
         <SectionHeading overline="A few sights around the town" title="Gallery" />
         <div className="-mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {galleryImages.map((filename) => (
+          {galleryImages.map((image) => (
             <div
-              key={filename}
+              key={image.file}
               className="relative aspect-[3/2] overflow-hidden rounded-lg"
             >
               <Image
-                src={`/images/gallery/${filename}`}
-                alt=""
+                src={`/images/gallery/${image.file}`}
+                alt={image.alt}
                 fill
                 className="object-cover"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

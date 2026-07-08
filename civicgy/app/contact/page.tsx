@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import PageBanner from "@/app/_components/PageBanner";
 import Section from "@/app/_components/Section";
 import { FormField, TextInput, TextareaInput, SelectInput, FormGrid } from "@/app/_components/FormField";
 import { Card } from "@/app/_components/Card";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Get in touch with the Civic Society of Great Yarmouth for general or membership enquiries.",
+};
 
 export default function ContactPage() {
   return (

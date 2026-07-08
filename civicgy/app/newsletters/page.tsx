@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import PageBanner from "@/app/_components/PageBanner";
 import Section from "@/app/_components/Section";
+
+export const metadata: Metadata = {
+  title: "Newsletters",
+  description:
+    "Browse and download past newsletters from the Civic Society of Great Yarmouth.",
+};
 
 const newsletters = [
   { number: 41, file: "Civic-Society-Newsletter-41.pdf" },
@@ -40,10 +47,11 @@ export default function NewslettersPage() {
               key={nl.number}
               className="flex flex-col items-center rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
             >
-              <div className="mb-4 flex h-20 w-full items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary opacity-20">
-                <span className="text-lg font-bold text-primary">
-                  Newsletter {nl.number}
-                </span>
+              <div className="relative mb-4 flex h-20 w-full items-center justify-center overflow-hidden rounded-lg">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary opacity-20" />
+                <svg className="relative h-8 w-8 text-primary/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                </svg>
               </div>
               <h3 className="mb-1 text-center font-bold text-primary">
                 Newsletter {nl.number}

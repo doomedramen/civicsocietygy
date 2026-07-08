@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import PageBanner from "@/app/_components/PageBanner";
 import Section from "@/app/_components/Section";
 import { FormField, TextInput, FormGrid } from "@/app/_components/FormField";
 import { Card } from "@/app/_components/Card";
+
+export const metadata: Metadata = {
+  title: "Become a Member",
+  description:
+    "Join the Civic Society of Great Yarmouth for just £10 a year and help us look after the town's buildings, streets, and future.",
+};
 
 export default function JoinPage() {
   return (

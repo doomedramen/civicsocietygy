@@ -19,7 +19,10 @@ const robotoSlab = Roboto_Slab({
 });
 
 export const metadata: Metadata = {
-  title: "Civic Society of Great Yarmouth",
+  title: {
+    default: "Civic Society of Great Yarmouth",
+    template: "%s — Civic Society of Great Yarmouth",
+  },
   description:
     "A society for everyone who cares about Great Yarmouth — its buildings, its streets, its story, and its future.",
   icons: {

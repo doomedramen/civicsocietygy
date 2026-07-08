@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import PageBanner from "@/app/_components/PageBanner";
 import Section from "@/app/_components/Section";
 import EmptyState from "@/app/_components/EmptyState";
 import { Badge } from "@/app/_components/Card";
+
+export const metadata: Metadata = {
+  title: "Events",
+  description:
+    "Upcoming and past talks, walks, and gatherings run by the Civic Society of Great Yarmouth.",
+};
 
 const pastEvents = [
   {
@@ -47,7 +54,7 @@ export default function EventsPage() {
               key={i}
               className="rounded-lg border border-gray-100 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
             >
-              <Badge variant="default">{event.date}</Badge>
+              <Badge variant="primary">{event.date}</Badge>
               <h3 className="mt-3 text-xl font-bold text-primary">{event.title}</h3>
               {event.speaker && (
                 <p className="text-sm font-medium text-secondary">{event.speaker}</p>
