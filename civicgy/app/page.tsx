@@ -5,14 +5,15 @@ import { Button } from "./_components/Button";
 import Section from "./_components/Section";
 
 const galleryImages = [
-  { id: 1, color: "from-slate-700 to-slate-500", label: "Town Wall" },
-  { id: 2, color: "from-blue-800 to-blue-600", label: "Heritage Building" },
-  { id: 3, color: "from-amber-700 to-amber-500", label: "Seafront" },
-  { id: 4, color: "from-emerald-700 to-emerald-500", label: "Gardens" },
-  { id: 5, color: "from-rose-700 to-rose-500", label: "Market Place" },
-  { id: 6, color: "from-indigo-700 to-indigo-500", label: "Town Centre" },
-  { id: 7, color: "from-teal-700 to-teal-500", label: "River View" },
-  { id: 8, color: "from-orange-700 to-orange-500", label: "Pier" },
+  "496.jpg",
+  "573.jpg",
+  "609-1.jpg",
+  "620.jpg",
+  "828.jpg",
+  "IMG_7480.jpg",
+  "IMG_7543.jpg",
+  "IMG_7559.jpg",
+  "IMG_7561.jpg",
 ];
 
 export default function HomePage() {
@@ -81,18 +82,19 @@ export default function HomePage() {
 
       <Section width="xl" className="text-center">
         <SectionHeading overline="A few sights around the town" title="Gallery" />
-        <div className="-mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {galleryImages.map((img) => (
+        <div className="-mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {galleryImages.map((filename) => (
             <div
-              key={img.id}
-              className="group relative aspect-[3/2] overflow-hidden rounded-lg"
+              key={filename}
+              className="relative aspect-[3/2] overflow-hidden rounded-lg"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${img.color}`} />
-              <div className="absolute inset-0 flex items-end bg-black/0 p-4 transition-colors group-hover:bg-black/30">
-                <span className="translate-y-2 text-sm font-medium text-white opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
-                  {img.label}
-                </span>
-              </div>
+              <Image
+                src={`/images/gallery/${filename}`}
+                alt=""
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
             </div>
           ))}
         </div>
