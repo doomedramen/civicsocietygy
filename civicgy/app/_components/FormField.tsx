@@ -1,7 +1,7 @@
 import { type InputHTMLAttributes } from "react";
 
 const inputClasses =
-  "w-full rounded-lg border border-gray-200 px-4 py-3 text-gray-900 focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20";
+  "w-full rounded-xl border border-primary/15 bg-[#fdfcf8] px-4 py-3.5 text-gray-900 transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/15";
 const labelClasses = "mb-1 block text-sm font-medium text-gray-700";
 
 export function FormField({

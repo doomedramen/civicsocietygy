@@ -25,12 +25,12 @@ export default function SectionHeading({
     <div className={`text-center ${className}`}>
       {overline && (
         <p
-          className={`mb-2 text-xs font-medium uppercase tracking-[0.2em] ${overlineColors[theme]}`}
+          className={`mb-4 text-[11px] font-bold uppercase tracking-[0.24em] ${overlineColors[theme]}`}
         >
           {overline}
         </p>
       )}
-      <h2 className={`mb-12 text-3xl font-bold sm:text-4xl ${headingColors[theme]}`}>
+      <h2 className={`mb-12 font-serif text-4xl font-medium leading-[1.05] tracking-[-0.02em] sm:text-5xl ${headingColors[theme]}`}>
         {title}
       </h2>
     </div>

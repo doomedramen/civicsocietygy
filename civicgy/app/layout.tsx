@@ -1,21 +1,19 @@
 import type { Metadata } from "next";
-import { Roboto, Roboto_Slab } from "next/font/google";
+import { Manrope, Newsreader } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import MobileMenu from "./_components/MobileMenu";
 import { navLinks, footerLinks } from "./_lib/nav";
 import "./globals.css";
 
-const roboto = Roboto({
+const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-  variable: "--font-roboto",
+  variable: "--font-manrope",
 });
 
-const robotoSlab = Roboto_Slab({
+const newsreader = Newsreader({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-roboto-slab",
+  variable: "--font-newsreader",
 });
 
 export const metadata: Metadata = {
@@ -40,8 +38,8 @@ const socialLinks = [
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${roboto.variable} ${robotoSlab.variable}`}>
-      <body className="flex min-h-screen flex-col bg-white font-sans text-gray-900 antialiased">
+    <html lang="en" className={`${manrope.variable} ${newsreader.variable}`}>
+      <body className="flex min-h-screen flex-col bg-[#faf8f2] font-sans text-gray-900 antialiased">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
@@ -52,30 +50,35 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 function Header() {
   return (
-    <header className="border-b-4 border-secondary bg-primary text-white">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex-shrink-0">
+    <header className="relative z-50 border-b border-primary/10 bg-[#faf8f2]/95 backdrop-blur-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:py-6">
+        <Link href="/" className="flex-shrink-0" aria-label="Civic Society of Great Yarmouth — home">
           <Image
-            src="/images/logo-white.png"
+            src="/images/logo-color.png"
             alt="Civic Society of Great Yarmouth"
             width={240}
             height={37}
-            className="h-auto w-48 sm:w-60"
+            className="h-auto w-52 sm:w-60"
             priority
           />
         </Link>
-        <nav className="hidden items-center gap-1 lg:flex">
+        <p className="hidden max-w-xs text-right font-serif text-lg leading-tight text-primary/70 md:block lg:text-xl">
+          Pride in our town.<br />A voice for its future.
+        </p>
+        <MobileMenu />
+      </div>
+      <div className="hidden border-t border-primary/10 lg:block">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-8" aria-label="Main navigation">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="rounded px-3 py-2 text-sm font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+              className={`border-b-2 px-2 py-4 text-[12px] font-bold tracking-[0.01em] transition-colors ${link.href === "/join" ? "border-secondary text-secondary" : "border-transparent text-primary/65 hover:border-primary/20 hover:text-primary"}`}
             >
               {link.label}
             </Link>
           ))}
         </nav>
-        <MobileMenu />
       </div>
     </header>
   );
@@ -84,21 +87,36 @@ function Header() {
 function Footer() {
   return (
     <footer className="bg-primary text-white">
-      <div className="mx-auto max-w-7xl px-6 py-12">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="relative overflow-hidden border-b border-white/10 py-16 sm:py-20">
+        <Image src="/images/gallery/footer-image.jpg" alt="" fill className="object-cover opacity-15 mix-blend-luminosity" sizes="100vw" />
+        <div className="relative mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-[1.2fr_.8fr] lg:items-end">
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-secondary-light">Site Navigation</h4>
-            <nav className="flex flex-col gap-2">
-              {footerLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="text-sm text-white/70 transition-colors hover:text-white">
-                  {link.label}
-                </Link>
+            <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.24em] text-secondary-light">Care about Great Yarmouth?</p>
+            <h2 className="max-w-2xl font-serif text-4xl font-medium leading-[1.05] sm:text-6xl">Add your voice to the town&rsquo;s future.</h2>
+          </div>
+          <div className="lg:text-right">
+            <Link href="/join" className="inline-flex rounded-full bg-secondary px-7 py-4 text-sm font-bold text-white transition-colors hover:bg-secondary-dark">Become a member — £10 a year</Link>
+          </div>
+        </div>
+      </div>
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
+          <div>
+            <Image src="/images/logo-white.png" alt="Civic Society of Great Yarmouth" width={260} height={40} className="h-auto w-56" />
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">For everyone who cares about Great Yarmouth—its buildings, streets, story and future.</p>
+          </div>
+          <div>
+            <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-secondary-light">Explore</h4>
+            <nav className="grid grid-cols-2 gap-x-5 gap-y-2 lg:grid-cols-1">
+              {footerLinks.slice(1, 7).map((link) => (
+                <Link key={link.href} href={link.href} className="text-sm text-white/65 transition-colors hover:text-white">{link.label}</Link>
               ))}
             </nav>
           </div>
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-secondary-light">Quick Links</h4>
+            <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-secondary-light">Information</h4>
             <nav className="flex flex-col gap-2">
+              <Link href="/contact" className="text-sm text-white/65 hover:text-white">Contact</Link>
               <Link href="/privacy" className="text-sm text-white/70 transition-colors hover:text-white">
                 Privacy Policy
               </Link>
@@ -108,20 +126,7 @@ function Footer() {
             </nav>
           </div>
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-secondary-light">Contact</h4>
-            <div className="flex flex-col gap-2 text-sm text-white/70">
-              <p>General Enquiries:</p>
-              <a href="mailto:info@civicsocietygy.co.uk" className="text-secondary-light hover:text-white">
-                info@civicsocietygy.co.uk
-              </a>
-              <p className="mt-2">Membership Enquiries:</p>
-              <a href="mailto:memberships@civicsocietygy.co.uk" className="text-secondary-light hover:text-white">
-                memberships@civicsocietygy.co.uk
-              </a>
-            </div>
-          </div>
-          <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-secondary-light">Follow Us</h4>
+            <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-secondary-light">Follow the Society</h4>
             <div className="flex gap-3">
               {socialLinks.map((s) => (
                 <a
@@ -130,7 +135,7 @@ function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 transition-colors hover:bg-secondary hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-secondary hover:bg-secondary hover:text-white"
                 >
                   <s.icon />
                 </a>
@@ -138,17 +143,9 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-10 mb-8 flex justify-center">
-          <Image
-            src="/images/logo-color.png"
-            alt="Civic Society of Great Yarmouth"
-            width={300}
-            height={46}
-            className="h-auto w-56 opacity-90 sm:w-72"
-          />
-        </div>
-        <div className="border-t border-white/10 pt-6 text-center text-xs text-white/40">
-          &copy; {new Date().getFullYear()} The Civic Society of Great Yarmouth
+        <div className="mt-12 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+          <span>&copy; {new Date().getFullYear()} The Civic Society of Great Yarmouth</span>
+          <a href="mailto:info@civicsocietygy.co.uk" className="hover:text-white">info@civicsocietygy.co.uk</a>
         </div>
       </div>
     </footer>

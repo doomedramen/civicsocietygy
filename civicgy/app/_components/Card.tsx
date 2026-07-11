@@ -14,7 +14,7 @@ export function Card({
   const pad = { sm: "p-4", md: "p-6", lg: "p-8" }[padding];
   const hov = hover ? "transition-shadow hover:shadow-md" : "";
   return (
-    <div className={`rounded-xl border border-gray-100 bg-white shadow-sm ${pad} ${hov} ${className}`}>
+    <div className={`rounded-2xl border border-primary/10 bg-white shadow-[0_12px_40px_rgba(22,59,58,.06)] ${pad} ${hov} ${className}`}>
       {children}
     </div>
   );

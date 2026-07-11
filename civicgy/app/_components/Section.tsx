@@ -19,8 +19,8 @@ export default function Section({
   className?: string;
 }) {
   return (
-    <section className={`py-16 sm:py-24 ${className}`}>
-      <div className={`mx-auto px-6 ${widths[width]}`}>{children}</div>
+    <section className={`py-20 sm:py-28 ${className}`}>
+      <div className={`mx-auto px-5 sm:px-8 ${widths[width]}`}>{children}</div>
     </section>
   );
 }

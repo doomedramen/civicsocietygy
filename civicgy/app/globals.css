@@ -1,17 +1,53 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #39414f;
-  --color-primary-light: #4a5568;
-  --color-secondary: #5f88a5;
-  --color-secondary-light: #7da4be;
-  --color-secondary-dark: #4a6d85;
-  --color-cream: #f8f7f4;
-  --font-sans: var(--font-roboto);
-  --font-serif: var(--font-roboto-slab);
+  --color-primary: #163b3a;
+  --color-primary-light: #285452;
+  --color-secondary: #b75c3b;
+  --color-secondary-light: #df9275;
+  --color-secondary-dark: #91452e;
+  --color-cream: #f3efe5;
+  --font-sans: var(--font-manrope);
+  --font-serif: var(--font-newsreader);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  background: #faf8f2;
+  color: #1e2928;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: #b75c3b;
+  color: white;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  outline-offset: 3px;
+}
+
+:focus-visible {
+  outline: 2px solid #b75c3b;
+}
+
+.paper-grid {
+  background-image: linear-gradient(rgba(22, 59, 58, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 59, 58, 0.045) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+.image-wash::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(10, 35, 34, 0.93) 0%, rgba(10, 35, 34, 0.69) 48%, rgba(10, 35, 34, 0.16) 100%);
 }

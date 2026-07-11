@@ -12,7 +12,9 @@ export default function MobileMenu() {
       <button
         onClick={() => setOpen(!open)}
         aria-label={open ? "Close menu" : "Open menu"}
-        className="rounded p-2 hover:bg-white/10"
+        aria-expanded={open}
+        aria-controls="mobile-navigation"
+        className="rounded-full border border-primary/15 p-2 text-primary hover:bg-primary/5"
       >
         {open ? (
           <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -26,13 +28,13 @@ export default function MobileMenu() {
       </button>
 
       {open && (
-        <nav className="absolute left-0 right-0 top-full border-t border-white/10 bg-primary shadow-lg">
+        <nav id="mobile-navigation" className="absolute left-0 right-0 top-full grid grid-cols-2 border-t border-primary/10 bg-[#faf8f2] p-3 shadow-xl">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="block px-6 py-3 text-sm text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+              className="block rounded-lg px-4 py-3 text-sm font-medium text-primary/75 transition-colors hover:bg-cream hover:text-primary"
             >
               {link.label}
             </Link>
