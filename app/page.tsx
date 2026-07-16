@@ -152,11 +152,11 @@ export default function HomePage() {
           </div>
           <div className="grid border-y border-primary/15 md:grid-cols-3 md:divide-x md:divide-primary/15">
             {pathways.map((item) => (
-              <Link key={item.number} href={item.href} className="group border-b border-primary/15 py-9 last:border-0 md:border-b-0 md:px-8 md:first:pl-0 md:last:pr-0">
+              <Link key={item.number} href={item.href} className="group border-b border-primary/15 py-6 last:border-0 md:border-b-0 md:py-9 md:px-8 md:first:pl-0 md:last:pr-0">
                 <p className="text-xs font-bold text-secondary">{item.number}</p>
-                <h3 className="mt-8 font-serif text-3xl font-medium text-primary">{item.title}</h3>
-                <p className="mt-4 leading-relaxed text-gray-600">{item.text}</p>
-                <span className="mt-7 inline-flex text-xl text-primary/35 transition-all group-hover:translate-x-1 group-hover:text-secondary">→</span>
+                <h3 className="mt-2 font-serif text-2xl font-medium text-primary md:mt-8 md:text-3xl">{item.title}</h3>
+                <p className="mt-2 leading-relaxed text-gray-600 md:mt-4">{item.text}</p>
+                <span className="mt-4 inline-flex text-xl text-primary/35 transition-all group-hover:translate-x-1 group-hover:text-secondary md:mt-7">→</span>
               </Link>
             ))}
           </div>
