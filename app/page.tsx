@@ -66,7 +66,7 @@ export default function HomePage() {
               <span className="h-px w-10 bg-secondary-light" />
               Our town · Our shared responsibility
             </p>
-            <h1 className="max-w-3xl font-serif text-[clamp(3.6rem,8vw,7.2rem)] font-medium leading-[0.88] tracking-[-0.045em]">
+            <h1 className="max-w-3xl font-serif text-5xl font-medium leading-[0.95] tracking-[-0.03em] sm:text-6xl sm:leading-[0.9] sm:tracking-[-0.04em] md:text-[clamp(3.6rem,8vw,7.2rem)] md:leading-[0.88] md:tracking-[-0.045em]">
               Pride in our past.<br />A voice for our future.
             </h1>
             <p className="mt-8 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">

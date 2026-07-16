@@ -77,27 +77,28 @@ export default function ReportsPage() {
           {reports.map((report) => (
             <div
               key={report.file}
-              className="flex items-center justify-between rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition-shadow hover:shadow-md"
+              className="flex flex-col gap-4 rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition-shadow hover:shadow-md sm:flex-row sm:items-center sm:justify-between"
             >
               <div className="flex items-center gap-4">
-                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-sm font-bold text-primary">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-sm font-bold text-primary">
                   {report.number}
                 </span>
                 <span className="font-medium text-primary">
                   {ordinal(report.number)} Annual Report ({report.year})
                 </span>
               </div>
-              <div className="flex gap-2">
+              <div className="grid grid-cols-2 gap-2 sm:flex">
                 <Button
                   href={`/files/${report.file}`}
                   variant="secondary"
                   size="sm"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="w-full sm:w-auto"
                 >
                   View Report
                 </Button>
-                <Button href={`/files/${report.file}`} download variant="primary" size="sm">
+                <Button href={`/files/${report.file}`} download variant="primary" size="sm" className="w-full sm:w-auto">
                   Download PDF
                 </Button>
               </div>
