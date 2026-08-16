@@ -43,15 +43,15 @@ const management = [
 
 const committeeMembers = [
   { name: "Peter Bondi", description: "Retired Hotel Manager" },
-  { name: "Anne Edwards", description: "Former Editor of the Great Yarmouth Mercury" },
   { name: "Ian McCredie", description: "Managing Director of SPP Digital, Ex Chair of Enterprise GY & School Governor" },
-  { name: "Paul Patterson", description: "Retired Managing Director, Director of ATEC Design, Historian and Author" },
-  { name: "Michael Musket", description: "Retired Accountant" },
+  { name: "Michael Muskett MBE", description: "Retired Accountant" },
   { name: "Miriam Kikis", description: "Retired Restaurateur" },
-  { name: "Kol Kishon", description: "Retired Head of the Imaging Department at the James Paget Hospital" },
+  { name: "Kol Kishan", description: "Retired Head of the Imaging Department at the James Paget Hospital" },
   { name: "Ian Miller", description: "Chartered Quantity Surveyor" },
-  { name: "Bruce Sturock", description: "Former Chair of Palmers and The Town Centre Partnership" },
+  { name: "Bruce Sturrock", description: "Former Chair of Palmers and The Town Centre Partnership" },
   { name: "Michael Zegerman", description: "Retired Businessman" },
+  { name: "Gavin Hetherington", description: "Retired Engineer" },
+  { name: "Rob Haslam", description: "Architect" },
 ];
 
 export default function OurPeoplePage() {

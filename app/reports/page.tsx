@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import PageBanner from "@/app/_components/PageBanner";
 import Section from "@/app/_components/Section";
 import { Button } from "@/app/_components/Button";
-import { Badge } from "@/app/_components/Card";
 
 export const metadata: Metadata = {
   title: "Reports",
@@ -63,7 +62,20 @@ export default function ReportsPage() {
               A comprehensive look at regeneration initiatives across Great Yarmouth
               and the society&rsquo;s vision for the town&rsquo;s future development.
             </p>
-            <Badge variant="default">Coming Soon</Badge>
+            <div className="flex flex-wrap gap-2">
+              <Button
+                href="/files/GYCS_RegenerationReport.pdf"
+                variant="secondary"
+                size="sm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Report
+              </Button>
+              <Button href="/files/GYCS_RegenerationReport.pdf" download variant="primary" size="sm">
+                Download PDF
+              </Button>
+            </div>
           </div>
         </div>
 
