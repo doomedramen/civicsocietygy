@@ -10,6 +10,10 @@ export const metadata: Metadata = {
 };
 
 const newsletters = [
+  { number: 55, file: "Civic-Society-Newsletter-55.pdf" },
+  { number: 54, file: "Civic-Society-Newsletter-54.pdf" },
+  { number: 53, file: "Civic-Society-Newsletter-53.pdf" },
+  { number: 52, file: "Civic-Society-Newsletter-52.pdf" },
   { number: 51, file: "Civic-Society-Newsletter-51.pdf" },
   { number: 50, file: "Civic-Society-Newsletter-50.pdf" },
   { number: 48, file: "Civic-Society-Newsletter-48.pdf" },
