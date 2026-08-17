@@ -43,7 +43,7 @@ const management = [
 
 const committeeMembers = [
   { name: "Peter Bondi", description: "Retired Hotel Manager" },
-  { name: "Ian McCredie", description: "Managing Director of SPP Digital, Ex Chair of Enterprise GY & School Governor" },
+  { name: "Ian McCreadie", description: "Managing Director of SPP Digital, Ex Chair of Enterprise GY & School Governor" },
   { name: "Michael Muskett MBE", description: "Retired Accountant" },
   { name: "Miriam Kikis", description: "Retired Restaurateur" },
   { name: "Kol Kishan", description: "Retired Head of the Imaging Department at the James Paget Hospital" },

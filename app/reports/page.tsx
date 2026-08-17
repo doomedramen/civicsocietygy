@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 };
 
 const reports = [
+  { number: 8, year: "2024-25", file: "GYCS_8thAnnualReport.pdf" },
   { number: 7, year: "2023-24", file: "GYCS_7thAnnualReport.pdf" },
   { number: 6, year: "2022-23", file: "GYCS_6thAnnualReport.pdf" },
   { number: 5, year: "2021-22", file: "GYCS_5thAnnualReport.pdf" },
