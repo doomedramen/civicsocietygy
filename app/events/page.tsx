@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import PageBanner from "@/app/_components/PageBanner";
 import Section from "@/app/_components/Section";
-import EmptyState from "@/app/_components/EmptyState";
 import { Badge } from "@/app/_components/Card";
 
 export const metadata: Metadata = {
@@ -42,10 +41,20 @@ export default function EventsPage() {
       <Section width="md">
         <h2 className="mb-8 text-2xl font-bold text-primary">Upcoming Events</h2>
 
-        <EmptyState
-          title="We're finalising our 2025 programme at the moment."
-          description="Details of talks, walks, and gatherings will be posted here and on our social media once dates are confirmed. Do check back — or better yet, follow us on Facebook or LinkedIn where we announce things first."
-        />
+        <div className="rounded-lg border border-gray-100 bg-white p-6 shadow-sm">
+          <Badge variant="secondary">Tuesday 22 September, 7.30pm</Badge>
+          <h3 className="mt-3 text-xl font-bold text-primary">Great Yarmouth&rsquo;s Railways</h3>
+          <p className="text-sm font-medium text-secondary">Richard Gallard</p>
+          <p className="mt-2 leading-relaxed text-gray-600">
+            A talk on the history of Great Yarmouth&rsquo;s railways, held in the Old
+            Priory (behind the Old Vicarage). Followed by the Civic Society AGM.
+          </p>
+        </div>
+
+        <p className="mt-6 text-sm leading-relaxed text-gray-500">
+          More dates for the rest of the programme are still being confirmed and
+          will be posted here as soon as they&rsquo;re available.
+        </p>
 
         <h2 className="mb-8 mt-16 text-2xl font-bold text-primary">Past Events</h2>
         <div className="space-y-4">
