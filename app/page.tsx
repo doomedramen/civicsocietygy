@@ -232,7 +232,7 @@ export default function HomePage() {
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-white/60">The details, landmarks and lived-in places that make Great Yarmouth unmistakably itself.</p>
           </div>
-          <div className="grid auto-rows-[220px] gap-3 sm:grid-cols-4 sm:auto-rows-[240px]">
+          <div className="grid auto-rows-[220px] grid-flow-dense gap-3 sm:grid-cols-4 sm:auto-rows-[240px]">
             {galleryImages.map((image) => (
               <div key={image.file} className={`group relative overflow-hidden ${image.className}`}>
                 <Image src={withBasePath(`/images/gallery/${image.file}`)} alt={image.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-[1.03]" sizes="(max-width: 640px) 100vw, 50vw" />
