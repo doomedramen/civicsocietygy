@@ -46,8 +46,33 @@ const galleryImages = [
     className: "sm:col-span-2",
   },
   {
-    file: "IMG_8889.jpg",
-    alt: "A section of Great Yarmouth's medieval town wall with a stone tower",
+    file: "IMG_8855.jpg",
+    alt: "Anna Sewell House, where the writer of Black Beauty lived",
+    className: "",
+  },
+  {
+    file: "IMG_8854.jpg",
+    alt: "Great Yarmouth Old Vicarage with the Minster tower behind",
+    className: "sm:col-span-2",
+  },
+  {
+    file: "IMG_8853.jpg",
+    alt: "Great Yarmouth's Indoor Market",
+    className: "",
+  },
+  {
+    file: "IMG_8852.jpg",
+    alt: "The Yarn with Ernie statue in the Market Place",
+    className: "",
+  },
+  {
+    file: "IMG_8850.jpg",
+    alt: "The Place, the new library and university learning centre in the old Palmers department store",
+    className: "",
+  },
+  {
+    file: "IMG_8845.jpg",
+    alt: "The Old Ice House in Great Yarmouth",
     className: "",
   },
   {
@@ -56,53 +81,28 @@ const galleryImages = [
     className: "",
   },
   {
-    file: "IMG_8845.jpg",
-    alt: "A thatched former net store overlooking the harbour in Great Yarmouth",
-    className: "",
-  },
-  {
-    file: "IMG_8854.jpg",
-    alt: "The Minster Church of St Nicholas and the Old Merchant's House on Priory Plain",
-    className: "sm:col-span-2",
-  },
-  {
-    file: "IMG_8855.jpg",
-    alt: "A timber-framed Row house on the South Quay in Great Yarmouth",
-    className: "",
-  },
-  {
-    file: "IMG_8852.jpg",
-    alt: "The Place development on the Market Place, Great Yarmouth",
-    className: "",
-  },
-  {
-    file: "IMG_8850.jpg",
-    alt: "The Place, a former department store now home to the library and university centre",
-    className: "",
-  },
-  {
-    file: "IMG_8853.jpg",
-    alt: "The new market shelter and Market Place on a busy afternoon",
-    className: "sm:col-span-2",
-  },
-  {
-    file: "IMG_8602.jpg",
-    alt: "Civic Society members visiting a historic gasholder site in Great Yarmouth",
-    className: "",
-  },
-  {
-    file: "IMG_8673.jpg",
-    alt: "The unveiling of a new bronze statue in Great Yarmouth Market Place",
+    file: "IMG_8678.jpg",
+    alt: "The Mayor and Henry Cator with the artist of the Herring sculpture",
     className: "",
   },
   {
     file: "IMG_8676.jpg",
-    alt: "Local residents gathered around the newly unveiled statue in the Market Place",
+    alt: "Ernie's family with the Yarn with Ernie statue after its unveiling by the Mayor",
+    className: "sm:col-span-2",
+  },
+  {
+    file: "IMG_8673.jpg",
+    alt: "The Yarn with Ernie statue with some of Ernie's family",
     className: "",
   },
   {
-    file: "IMG_8678.jpg",
-    alt: "The Mayor of Great Yarmouth at a civic unveiling ceremony",
+    file: "IMG_8602.jpg",
+    alt: "Civic Society members visiting the Gas Holder",
+    className: "",
+  },
+  {
+    file: "IMG_8889.jpg",
+    alt: "Blackfriars Tower and part of the Town Wall",
     className: "",
   },
 ];
