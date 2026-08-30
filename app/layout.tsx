@@ -146,7 +146,6 @@ function Footer() {
         </div>
         <div className="mt-12 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
           <span>&copy; {new Date().getFullYear()} The Civic Society of Great Yarmouth</span>
-          <a href="mailto:info@civicsocietygy.co.uk" className="hover:text-white">info@civicsocietygy.co.uk</a>
         </div>
       </div>
     </footer>

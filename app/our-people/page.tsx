@@ -23,14 +23,12 @@ const management = [
     name: "Hugh Sturzaker MBE",
     role: "Chair",
     description: "Retired Surgeon",
-    email: "info@civicsocietygy.co.uk",
     image: "/images/people/hugh-sturzaker.png",
   },
   {
     name: "Susan Page",
     role: "Treasurer & Membership Secretary",
-    description: "Former Chef & Now a Taxi Driver",
-    email: "memberships@civicsocietygy.co.uk",
+    description: "Former Chef",
     image: "/images/people/susan-page.png",
   },
   {
@@ -82,14 +80,6 @@ export default function OurPeoplePage() {
               <h4 className="text-lg font-bold text-primary">{person.name}</h4>
               <p className="text-sm font-medium text-secondary">{person.role}</p>
               <p className="mt-2 text-sm text-gray-500">{person.description}</p>
-              {"email" in person && (
-                <a
-                  href={`mailto:${person.email}`}
-                  className="mt-3 inline-block text-xs text-secondary hover:text-secondary-dark"
-                >
-                  {person.email}
-                </a>
-              )}
             </Card>
           ))}
         </div>

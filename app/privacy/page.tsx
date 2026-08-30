@@ -41,11 +41,7 @@ export default function PrivacyPage() {
         <p className="leading-relaxed text-gray-600">
           You can ask to see what information we hold about you, ask us to
           correct it, or ask us to delete it. If you&rsquo;d like to do any of
-          those things, simply drop us a line at{" "}
-          <a href="mailto:info@civicsocietygy.co.uk" className="text-secondary underline">
-            info@civicsocietygy.co.uk
-          </a>
-          .
+          those things, please use our contact form.
         </p>
       </Section>
     </>

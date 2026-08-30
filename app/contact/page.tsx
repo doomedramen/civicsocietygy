@@ -85,9 +85,7 @@ export default function ContactPage() {
               </svg>
               General Enquiries
             </h3>
-            <a href="mailto:info@civicsocietygy.co.uk" className="text-secondary hover:text-secondary-dark">
-              info@civicsocietygy.co.uk
-            </a>
+            <p className="text-gray-600">Please use the form above to get in touch.</p>
           </Card>
           <Card>
             <h3 className="mb-3 flex items-center gap-2 text-lg font-bold text-primary">
@@ -96,9 +94,7 @@ export default function ContactPage() {
               </svg>
               Membership Enquiries
             </h3>
-            <a href="mailto:memberships@civicsocietygy.co.uk" className="text-secondary hover:text-secondary-dark">
-              memberships@civicsocietygy.co.uk
-            </a>
+            <p className="text-gray-600">Please use the form above to get in touch.</p>
           </Card>
         </div>
       </Section>
