@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
 import PageBanner from "@/app/_components/PageBanner";
 import Section from "@/app/_components/Section";
 import { Button } from "@/app/_components/Button";
+import { createPageMetadata } from "@/app/_lib/site";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Reports",
   description:
     "Read or download the Civic Society of Great Yarmouth's Annual Reports and Regeneration Report.",
-};
+  path: "/reports/",
+});
 
 const reports = [
   { number: 8, year: "2024-25", file: "GYCS_8thAnnualReport.pdf" },

@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import PageBanner from "@/app/_components/PageBanner";
 import Section from "@/app/_components/Section";
+import { createPageMetadata } from "@/app/_lib/site";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Cookies Policy",
   description:
     "How the Civic Society of Great Yarmouth uses cookies on this website.",
-};
+  path: "/cookies/",
+});
 
 export default function CookiesPage() {
   return (

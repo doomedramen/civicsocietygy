@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
 import PageBanner from "@/app/_components/PageBanner";
 import Section from "@/app/_components/Section";
 import EmptyState from "@/app/_components/EmptyState";
 import { Badge } from "@/app/_components/Card";
+import { createPageMetadata } from "@/app/_lib/site";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Meetings",
   description:
     "Upcoming and past committee meetings of the Civic Society of Great Yarmouth.",
-};
+  path: "/meetings/",
+});
 
 const pastMeetings2024 = [
   {

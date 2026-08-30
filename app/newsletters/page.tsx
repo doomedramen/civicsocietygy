@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import PageBanner from "@/app/_components/PageBanner";
 import Section from "@/app/_components/Section";
+import { createPageMetadata } from "@/app/_lib/site";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Newsletters",
   description:
     "Browse and download past newsletters from the Civic Society of Great Yarmouth.",
-};
+  path: "/newsletters/",
+});
 
 const newsletters = [
   { number: 55, file: "Civic-Society-Newsletter-55.pdf" },

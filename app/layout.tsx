@@ -5,6 +5,7 @@ import Link from "next/link";
 import MobileMenu from "./_components/MobileMenu";
 import { navLinks, footerLinks } from "./_lib/nav";
 import { withBasePath } from "./_lib/basePath";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL, SOCIAL_IMAGE } from "./_lib/site";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -18,12 +19,31 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Civic Society of Great Yarmouth",
-    template: "%s — Civic Society of Great Yarmouth",
+    default: SITE_NAME,
+    template: `%s — ${SITE_NAME}`,
   },
-  description:
-    "A society for everyone who cares about Great Yarmouth — its buildings, its streets, its story, and its future.",
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: SITE_NAME,
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    locale: "en_GB",
+    images: [SOCIAL_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    images: [SOCIAL_IMAGE.url],
+  },
   icons: {
     icon: withBasePath("/images/favicon.png"),
     apple: withBasePath("/images/favicon.png"),
@@ -38,9 +58,38 @@ const socialLinks = [
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#organization`,
+        name: SITE_NAME,
+        url: SITE_URL,
+        logo: `${SITE_URL}/images/logo-color.png`,
+        sameAs: socialLinks.map(({ href }) => href),
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        name: SITE_NAME,
+        url: SITE_URL,
+        description: SITE_DESCRIPTION,
+        publisher: { "@id": `${SITE_URL}/#organization` },
+        inLanguage: "en-GB",
+      },
+    ],
+  };
+
   return (
     <html lang="en" className={`${manrope.variable} ${newsreader.variable}`}>
       <body className="flex min-h-screen flex-col bg-[#faf8f2] font-sans text-gray-900 antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+          }}
+        />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
