@@ -3,6 +3,7 @@ import PageBanner from "@/app/_components/PageBanner";
 import Section from "@/app/_components/Section";
 import { FormField, TextInput, FormGrid } from "@/app/_components/FormField";
 import { Card } from "@/app/_components/Card";
+import SubmissionForm from "@/app/_components/SubmissionForm";
 
 export const metadata: Metadata = {
   title: "Become a Member",
@@ -19,31 +20,11 @@ export default function JoinPage() {
         <div className="mb-12 rounded-xl bg-cream p-8 sm:p-10">
           <h2 className="mb-6 text-2xl font-bold text-primary">Membership Details</h2>
           <p className="mb-4 leading-relaxed text-gray-700">
-            Membership costs just <strong>&pound;10 a year</strong>. You can pay
-            by cheque or by BACS &mdash; whichever suits you best. Details for
-            both are below.
+            Membership costs just <strong>&pound;10 a year</strong>. Please pay
+            by BACS using the details below.
           </p>
 
           <div className="mt-8 space-y-6">
-            <div className="rounded-lg border border-gray-200 bg-white p-6">
-              <h3 className="mb-2 text-lg font-bold text-primary">By Cheque</h3>
-              <p className="text-gray-600">
-                The cheque must be payable to <strong>Civic Society of Great Yarmouth</strong>.
-                It can be posted to our Treasurer:
-              </p>
-              <address className="mt-3 not-italic text-gray-600">
-                Susan Page<br />
-                Flat 1, 84 North Denes Road<br />
-                Great Yarmouth<br />
-                NR30 4LW
-              </address>
-              <p className="mt-3 text-sm text-gray-500">
-                Please make sure your name is attached in the envelope so we know
-                who it was who paid. Cheques can also be handed in to our
-                Chairman/Treasurer at our events.
-              </p>
-            </div>
-
             <div className="rounded-lg border border-gray-200 bg-white p-6">
               <h3 className="mb-2 text-lg font-bold text-primary">By BACS</h3>
               <p className="text-gray-600">
@@ -59,6 +40,9 @@ export default function JoinPage() {
                   <p className="text-lg font-mono font-bold text-primary">31018468</p>
                 </div>
               </div>
+              <p className="mt-4 text-sm text-gray-500">
+                Please use your name as the payment reference, so we can match your BACS payment to your application.
+              </p>
             </div>
           </div>
         </div>
@@ -66,7 +50,7 @@ export default function JoinPage() {
         <Card padding="lg">
           <h2 className="mb-8 text-2xl font-bold text-primary">Membership Application Form</h2>
 
-          <form className="space-y-6">
+          <SubmissionForm className="space-y-6" formType="membership">
             <fieldset>
               <legend className="mb-4 text-lg font-semibold text-primary">
                 Step 1: Your Details
@@ -127,14 +111,16 @@ export default function JoinPage() {
                       type="radio"
                       name="gift-aid"
                       value="yes"
+                      required
                       className="mt-1 h-4 w-4 text-secondary focus:ring-secondary"
                     />
                     <span className="text-sm text-gray-700">
-                      Yes, I want my donation to be Gift Aided. I am a UK taxpayer
-                      and understand that if I pay less Income Tax and/or Capital
-                      Gains Tax in the current tax year than the amount of Gift Aid
-                      claimed on all my donations it is my responsibility to pay
-                      any difference.
+                      Yes, I want the Civic Society of Great Yarmouth to treat this
+                      membership payment and all future donations as Gift Aid
+                      donations. I am a UK taxpayer and understand that if I pay
+                      less Income Tax and/or Capital Gains Tax in the current tax
+                      year than the amount of Gift Aid claimed on all my donations,
+                      it is my responsibility to pay the difference.
                     </span>
                   </label>
                   <label className="flex items-start gap-3">
@@ -142,6 +128,7 @@ export default function JoinPage() {
                       type="radio"
                       name="gift-aid"
                       value="no"
+                      required
                       className="mt-1 h-4 w-4 text-secondary focus:ring-secondary"
                     />
                     <span className="text-sm text-gray-700">
@@ -167,7 +154,7 @@ export default function JoinPage() {
             >
               Submit Membership Form
             </button>
-          </form>
+          </SubmissionForm>
         </Card>
       </Section>
     </>

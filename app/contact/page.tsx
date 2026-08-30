@@ -3,6 +3,7 @@ import PageBanner from "@/app/_components/PageBanner";
 import Section from "@/app/_components/Section";
 import { FormField, TextInput, TextareaInput, SelectInput, FormGrid } from "@/app/_components/FormField";
 import { Card } from "@/app/_components/Card";
+import SubmissionForm from "@/app/_components/SubmissionForm";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -19,7 +20,7 @@ export default function ContactPage() {
         <Card padding="lg">
           <h2 className="mb-8 text-2xl font-bold text-primary">Send Us a Message</h2>
 
-          <form className="space-y-5">
+          <SubmissionForm className="space-y-5" formType="contact">
             <FormField label="Title" name="title" required>
               <SelectInput name="title" required>
                 <option value="">Please select</option>
@@ -73,7 +74,7 @@ export default function ContactPage() {
             >
               Send Message
             </button>
-          </form>
+          </SubmissionForm>
         </Card>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
