@@ -8,6 +8,11 @@ const GIFT_AID_DECLARATION =
 
 const SENDER = "Civic Society Forms <forms@civicsocietygy.uk>";
 const TREASURER = "susanpageuk@gmail.com";
+const BACS_DETAILS = {
+  payee: "Civic Society of Great Yarmouth",
+  sortCode: "30-99-97",
+  accountNumber: "31018468",
+};
 
 function corsHeaders(origin) {
   return {
@@ -97,7 +102,65 @@ function contactText(data) {
 }
 
 function membershipText(data, id, submittedAt) {
-  return `Membership application ${id}\nSubmitted: ${submittedAt}\n\nName: ${data.firstName} ${data.lastName}\nAddress: ${data.addressLine1}, ${data.city}, ${data.county || ""} ${data.postcode}\nEmail: ${data.email}\nMobile: ${data.mobile}\nGift Aid: ${data.giftAid === "yes" ? "Yes" : "No"}\n\n${data.giftAid === "yes" ? `Gift Aid declaration:\n${GIFT_AID_DECLARATION}` : ""}`;
+  return `Membership application\nReference: ${id}\nSubmitted: ${submittedAt}\n\nName: ${data.firstName} ${data.lastName}\nAddress: ${data.addressLine1}, ${data.city}, ${data.county || ""} ${data.postcode}\nEmail: ${data.email}\nMobile: ${data.mobile}\nGift Aid: ${data.giftAid === "yes" ? "Yes" : "No"}\n\n${data.giftAid === "yes" ? `Gift Aid declaration:\n${GIFT_AID_DECLARATION}` : ""}`;
+}
+
+function escapeHtml(text) {
+  return text.replace(/[&<>'"]/g, (character) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "'": "&#39;",
+    '"': "&quot;",
+  })[character]);
+}
+
+function emailHtml(content) {
+  return `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#1a1a1a;font-size:16px;line-height:1.6">
+    <h1 style="font-size:24px;font-weight:bold;margin:0 0 24px;color:#173939">Civic Society of Great Yarmouth</h1>
+    ${content}
+    <p style="margin:28px 0 0">With best wishes,<br><strong>The Civic Society of Great Yarmouth</strong></p>
+  </div>`;
+}
+
+function membershipReference(id) {
+  return `CSGY-${id.slice(0, 8).toUpperCase()}`;
+}
+
+function membershipReceiptText(data, id) {
+  const giftAid = data.giftAid === "yes"
+    ? "We have recorded your Gift Aid declaration. Thank you."
+    : "You chose not to add Gift Aid to this application.";
+  return `Hello ${data.firstName},\n\nThank you for applying to join the Civic Society of Great Yarmouth.\n\nTo complete your membership, please pay the annual £10 fee by BACS:\n\nPayee: ${BACS_DETAILS.payee}\nSort code: ${BACS_DETAILS.sortCode}\nAccount number: ${BACS_DETAILS.accountNumber}\nPayment reference: ${data.firstName} ${data.lastName}\n\n${giftAid}\n\nYour application reference is ${membershipReference(id)}. Please keep this email for your records.\n\nWe will be in touch once we have received your payment. If you have any questions, simply reply to this email.\n\nWith best wishes,\nThe Civic Society of Great Yarmouth`;
+}
+
+function membershipReceiptHtml(data, id) {
+  const giftAid = data.giftAid === "yes"
+    ? "We have recorded your Gift Aid declaration. Thank you."
+    : "You chose not to add Gift Aid to this application.";
+  return emailHtml(`<p>Hello ${escapeHtml(data.firstName)},</p>
+    <p>Thank you for applying to join the Civic Society of Great Yarmouth.</p>
+    <p>To complete your membership, please pay the annual <strong>£10 fee</strong> by BACS:</p>
+    <table style="border-collapse:collapse;margin:18px 0;background:#f7f4ec">
+      <tr><td style="padding:10px 14px;color:#5e6a68">Payee</td><td style="padding:10px 14px"><strong>${BACS_DETAILS.payee}</strong></td></tr>
+      <tr><td style="padding:10px 14px;color:#5e6a68">Sort code</td><td style="padding:10px 14px"><strong>${BACS_DETAILS.sortCode}</strong></td></tr>
+      <tr><td style="padding:10px 14px;color:#5e6a68">Account number</td><td style="padding:10px 14px"><strong>${BACS_DETAILS.accountNumber}</strong></td></tr>
+      <tr><td style="padding:10px 14px;color:#5e6a68">Payment reference</td><td style="padding:10px 14px"><strong>${escapeHtml(`${data.firstName} ${data.lastName}`)}</strong></td></tr>
+    </table>
+    <p>${giftAid}</p>
+    <p>Your application reference is <strong>${membershipReference(id)}</strong>. Please keep this email for your records.</p>
+    <p>We will be in touch once we have received your payment. If you have any questions, simply reply to this email.</p>`);
+}
+
+function contactReceiptText(data) {
+  return `Hello ${data.firstName},\n\nThank you for getting in touch with the Civic Society of Great Yarmouth. We have received your message and will reply as soon as we can.\n\nIf you need to add anything in the meantime, simply reply to this email.\n\nWith best wishes,\nThe Civic Society of Great Yarmouth`;
+}
+
+function contactReceiptHtml(data) {
+  return emailHtml(`<p>Hello ${escapeHtml(data.firstName)},</p>
+    <p>Thank you for getting in touch with the Civic Society of Great Yarmouth.</p>
+    <p>We have received your message and will reply as soon as we can.</p>
+    <p>If you need to add anything in the meantime, simply reply to this email.</p>`);
 }
 
 const worker = {
@@ -152,8 +215,9 @@ const worker = {
           from: SENDER,
           to: [data.email],
           reply_to: TREASURER,
-          subject: "We received your message",
-          text: "Thank you for contacting the Civic Society of Great Yarmouth. We have received your message and will reply as soon as we can.",
+          subject: "Thank you for contacting the Civic Society",
+          text: contactReceiptText(data),
+          html: contactReceiptHtml(data),
         },
         `${id}-receipt`,
       );
@@ -219,7 +283,8 @@ const worker = {
             to: [data.email],
             reply_to: TREASURER,
             subject: "Your Civic Society membership application",
-            text: `Thank you for your membership application. Please pay the annual membership fee by BACS, using your name as the payment reference.\n\nYour application reference is ${id}.\n\n${application}`,
+            text: membershipReceiptText(data, id),
+            html: membershipReceiptHtml(data, id),
           },
           `${id}-receipt`,
         );
