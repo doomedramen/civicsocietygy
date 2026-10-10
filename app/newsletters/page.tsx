@@ -11,6 +11,8 @@ export const metadata = createPageMetadata({
 });
 
 const newsletters = [
+  { number: 57, file: "Civic-Society-Newsletter-57.pdf" },
+  { number: 56, file: "Civic-Society-Newsletter-56.pdf" },
   { number: 55, file: "Civic-Society-Newsletter-55.pdf" },
   { number: 54, file: "Civic-Society-Newsletter-54.pdf" },
   { number: 53, file: "Civic-Society-Newsletter-53.pdf" },
