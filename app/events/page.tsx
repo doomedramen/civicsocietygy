@@ -2,6 +2,7 @@ import PageBanner from "@/app/_components/PageBanner";
 import Section from "@/app/_components/Section";
 import { Badge } from "@/app/_components/Card";
 import { createPageMetadata } from "@/app/_lib/site";
+import UpcomingTalks from "@/app/events/UpcomingTalks";
 
 export const metadata = createPageMetadata({
   title: "Events",
@@ -34,28 +35,36 @@ const pastEvents = [
   },
 ];
 
+const upcomingTalks = [
+  {
+    date: "2026-10-27",
+    dateLabel: "Tuesday 27 October 2026, 2.30pm",
+    title: "Tales of the Unexpected: A Career in Heritage Conservation",
+    speaker: "Lorraine Finch",
+    description: "At the Old Rectory.",
+  },
+  {
+    date: "2026-11-24",
+    dateLabel: "Tuesday 24 November 2026, 2.30pm",
+    title: "South Denes: A New Chapter for Great Yarmouth",
+    subtitle: "A masterplan for investment, jobs and long-term growth",
+    speaker:
+      "Councillor Daniel Candon, responsible for economic growth and development",
+    description: "At the Old Rectory.",
+  },
+];
+
 export default function EventsPage() {
   return (
     <>
       <PageBanner title="Events" />
 
       <Section width="md">
-        <h2 className="mb-8 text-2xl font-bold text-primary">Upcoming Events</h2>
-
-        <div className="rounded-lg border border-gray-100 bg-white p-6 shadow-sm">
-          <Badge variant="secondary">Tuesday 22 September, 7.30pm</Badge>
-          <h3 className="mt-3 text-xl font-bold text-primary">Great Yarmouth&rsquo;s Railways</h3>
-          <p className="text-sm font-medium text-secondary">Richard Gallard</p>
-          <p className="mt-2 leading-relaxed text-gray-600">
-            A talk on the history of Great Yarmouth&rsquo;s railways, held in the Old
-            Priory (behind the Old Vicarage). Followed by the Civic Society AGM.
-          </p>
-        </div>
-
-        <p className="mt-6 text-sm leading-relaxed text-gray-500">
-          More dates for the rest of the programme are still being confirmed and
-          will be posted here as soon as they&rsquo;re available.
+        <h2 className="mb-3 text-2xl font-bold text-primary">Future Talks</h2>
+        <p className="mb-8 text-sm leading-relaxed text-gray-600">
+          Free for members; £2 for non-members.
         </p>
+        <UpcomingTalks talks={upcomingTalks} />
 
         <h2 className="mb-8 mt-16 text-2xl font-bold text-primary">Past Events</h2>
         <div className="space-y-4">
