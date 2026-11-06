@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Newsreader } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
+import AwardsBanner from "./_components/AwardsBanner";
 import MobileMenu from "./_components/MobileMenu";
 import { navLinks, footerLinks } from "./_lib/nav";
 import { withBasePath } from "./_lib/basePath";
@@ -90,6 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
           }}
         />
+        <AwardsBanner />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

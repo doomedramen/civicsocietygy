@@ -44,6 +44,16 @@ const upcomingTalks = [
     description: "At the Old Rectory.",
   },
   {
+    date: "2026-11-12",
+    dateLabel: "Thursday 12 November 2026, 5.30pm for 6pm",
+    title: "Town Centre Awards Ceremony",
+    subtitle: "Winners of this year’s Town Centre Awards announced",
+    speaker: "Hosted by the Civic Society",
+    description:
+      "In the Assembly Room at the Town Hall — all 40 shortlisted shops, businesses and market stalls are invited.",
+    href: "/awards",
+  },
+  {
     date: "2026-11-24",
     dateLabel: "Tuesday 24 November 2026, 2.30pm",
     title: "South Denes: A New Chapter for Great Yarmouth",
