@@ -3,7 +3,13 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import AwardsBanner from "./AwardsBanner";
 
-afterEach(() => vi.useRealTimers());
+const pathname = vi.hoisted(() => ({ current: "/" }));
+vi.mock("next/navigation", () => ({ usePathname: () => pathname.current }));
+
+afterEach(() => {
+  vi.useRealTimers();
+  pathname.current = "/";
+});
 
 function setDate(iso: string) {
   vi.useFakeTimers({ toFake: ["Date"] });
@@ -28,6 +34,15 @@ describe("AwardsBanner", () => {
     render(<AwardsBanner />);
     expect(screen.getByText(/Thursday 12 November, 5\.30pm for 6pm/)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Find out more" })).toHaveAttribute("href", expect.stringMatching(/^\/awards\/?$/));
+  });
+
+  it.each(["/awards", "/awards/", "/awards/2026/"])("hides the pointless link on %s", (path) => {
+    pathname.current = path;
+    setDate("2026-11-05T12:00:00Z");
+    render(<AwardsBanner />);
+    expect(screen.getByRole("complementary")).toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "Find out more" })).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Dismiss awards notice" })).toBeInTheDocument();
   });
 
   it.each([
