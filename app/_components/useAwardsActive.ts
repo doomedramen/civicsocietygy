@@ -1,7 +1,7 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
-import { TOWN_CENTRE_AWARDS } from "@/app/_lib/awards";
+import { isAwardsActive } from "@/app/_lib/awards";
 import { getTodayInGreatYarmouth } from "@/app/_lib/dates";
 
 function subscribeToClock(onStoreChange: () => void) {
@@ -24,8 +24,5 @@ export function useTodayInGreatYarmouth() {
 // awards promotion window.
 export function useAwardsActive() {
   const today = useTodayInGreatYarmouth();
-  return (
-    today >= TOWN_CENTRE_AWARDS.visibleFrom &&
-    today <= TOWN_CENTRE_AWARDS.visibleUntil
-  );
+  return isAwardsActive(today);
 }
