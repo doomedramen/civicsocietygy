@@ -6,6 +6,7 @@ import { Badge, Card } from "@/app/_components/Card";
 import { awardCategories, TOWN_CENTRE_AWARDS } from "@/app/_lib/awards";
 import { withBasePath } from "@/app/_lib/basePath";
 import { createPageMetadata } from "@/app/_lib/site";
+import AwardsAfterNotice from "@/app/_components/AwardsAfterNotice";
 
 export const metadata = createPageMetadata({
   title: "Town Centre Awards",
@@ -20,13 +21,14 @@ export default function AwardsPage() {
       <PageBanner title="Town Centre Awards" />
 
       <Section width="md">
-        <div className="space-y-6 text-[17px] leading-[1.8] text-gray-700">
+        <AwardsAfterNotice />
+        <div className="space-y-6 text-lg leading-[1.8] text-gray-700">
           <p>
             Every year the Civic Society of Great Yarmouth recognises the
             shops, businesses, food and drink establishments and market stalls
             that keep the heart of our town looking its best. Judges give
             marks for shop frontages, first impressions, cleanliness and
-            window displays - the details that shape how the town feels to
+            window displays — the details that shape how the town feels to
             everyone who lives, works and visits here.
           </p>
         </div>
@@ -38,7 +40,7 @@ export default function AwardsPage() {
               <h2 className="mt-3 font-serif text-3xl font-medium text-primary">
                 Winners announced at the Town Hall
               </h2>
-              <p className="mt-3 leading-relaxed text-gray-600">
+              <p className="mt-3 text-lg leading-relaxed text-gray-700">
                 All {TOWN_CENTRE_AWARDS.shortlistedCount} shortlisted
                 businesses, each displaying a “shortlisted” sticker in their
                 window, are invited to the ceremony, where the winner of each
@@ -46,25 +48,25 @@ export default function AwardsPage() {
                 winner will be presented with a trophy.
               </p>
             </div>
-            <dl className="space-y-4 rounded-lg border border-primary/10 bg-cream p-6 text-sm">
+            <dl className="space-y-4 rounded-lg border border-primary/10 bg-cream p-6 text-base">
               <div>
-                <dt className="font-bold text-gray-500">Date</dt>
+                <dt className="font-bold text-gray-700">Date</dt>
                 <dd className="mt-0.5 font-serif text-xl text-primary">{TOWN_CENTRE_AWARDS.dateLabel}</dd>
               </div>
               <div>
-                <dt className="font-bold text-gray-500">Time</dt>
-                <dd className="mt-0.5 text-gray-700">{TOWN_CENTRE_AWARDS.timeLabel}</dd>
+                <dt className="font-bold text-gray-700">Time</dt>
+                <dd className="mt-0.5 text-lg text-gray-700">{TOWN_CENTRE_AWARDS.timeLabel}</dd>
               </div>
               <div>
-                <dt className="font-bold text-gray-500">Venue</dt>
-                <dd className="mt-0.5 text-gray-700">{TOWN_CENTRE_AWARDS.venue}</dd>
+                <dt className="font-bold text-gray-700">Venue</dt>
+                <dd className="mt-0.5 text-lg text-gray-700">{TOWN_CENTRE_AWARDS.venue}</dd>
               </div>
             </dl>
           </div>
         </Card>
 
         <h2 className="mt-16 text-2xl font-bold text-primary">This year&rsquo;s categories</h2>
-        <p className="mt-2 text-sm text-gray-500">
+        <p className="mt-2 text-base text-gray-700">
           {TOWN_CENTRE_AWARDS.shortlistedCount} shops, businesses and market stalls have been shortlisted across{" "}
           {TOWN_CENTRE_AWARDS.categoryCount} categories.
         </p>
@@ -72,7 +74,7 @@ export default function AwardsPage() {
           {awardCategories.map((category) => (
             <li
               key={category}
-              className="flex items-center gap-3 rounded-lg border border-primary/10 bg-white px-4 py-3 text-sm font-semibold text-primary shadow-sm"
+              className="flex items-center gap-3 rounded-lg border border-primary/10 bg-white px-4 py-3.5 text-base font-semibold text-primary shadow-sm"
             >
               <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-secondary" aria-hidden="true" />
               {category}
@@ -81,9 +83,9 @@ export default function AwardsPage() {
         </ul>
 
         <h2 className="mt-16 text-2xl font-bold text-primary">How the awards work</h2>
-        <div className="mt-4 space-y-4 leading-[1.8] text-gray-600">
+        <div className="mt-4 space-y-4 text-lg leading-[1.8] text-gray-700">
           <p>
-            A Team of Civic Society judges carry out a visual audit of premises
+            A team of Civic Society judges carry out a visual audit of premises
             across the town centre, from shop frontage and first impressions
             to cleanliness and window displays. The businesses with the
             highest marks are shortlisted and given a window sticker to
@@ -106,18 +108,18 @@ export default function AwardsPage() {
             height={800}
             className="h-auto w-full rounded-2xl object-cover shadow-sm"
           />
-          <figcaption className="mt-3 text-center text-xs uppercase tracking-[0.15em] text-primary/50">
-            Great Yarmouth Town Hall - home of the awards ceremony
+          <figcaption className="mt-3 text-center text-sm text-gray-600">
+            Great Yarmouth Town Hall — home of the awards ceremony
           </figcaption>
         </figure>
 
         <div className="mt-12 rounded-lg border border-primary/10 bg-cream p-6 text-center">
-          <p className="text-sm leading-relaxed text-gray-600">
+          <p className="text-lg leading-relaxed text-gray-700">
             Look out for the “shortlisted” sticker in windows around the town centre — and come along on the day to find out who wins.
           </p>
           <Link
-            href="/events"
-            className="mt-4 inline-flex items-center gap-2 border-b border-secondary pb-1 text-sm font-bold text-primary transition-colors hover:text-secondary"
+            href="/events/"
+            className="mt-4 inline-flex items-center gap-2 border-b border-secondary pb-1 text-base font-bold text-primary transition-colors hover:text-secondary"
           >
             See our other upcoming events
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

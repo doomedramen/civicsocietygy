@@ -8,14 +8,16 @@ export const TOWN_CENTRE_AWARDS = {
   path: "/awards/",
   ceremonyDate: "2026-11-12",
   dateLabel: "Thursday 12 November 2026",
+  shortDateLabel: "Thursday 12 November",
   timeLabel: "5.30pm for 6pm",
   venue: "The Assembly Room, Great Yarmouth Town Hall",
   shortlistedCount: 40,
   categoryCount: 11,
   // The banner, homepage spotlight and first-visit modal are only shown
-  // between these dates (London time, inclusive).
+  // between these dates (London time, inclusive). They stop on the day of
+  // the ceremony itself, so nothing claims it is still to come afterwards.
   visibleFrom: "2026-11-02",
-  visibleUntil: "2026-11-13",
+  visibleUntil: "2026-11-12",
 } as const;
 
 export const awardCategories = [
@@ -31,6 +33,20 @@ export const awardCategories = [
   "Charity Shop",
   "Market Stalls",
 ];
+
+// True while the given London date (YYYY-MM-DD) is inside the promotion
+// window. ISO dates compare correctly as strings.
+export function isAwardsActive(today: string): boolean {
+  return (
+    today >= TOWN_CENTRE_AWARDS.visibleFrom &&
+    today <= TOWN_CENTRE_AWARDS.visibleUntil
+  );
+}
+
+// True once the ceremony day has passed.
+export function hasCeremonyPassed(today: string): boolean {
+  return today > TOWN_CENTRE_AWARDS.ceremonyDate;
+}
 
 // Whole days from the given London-date string (YYYY-MM-DD) until the
 // ceremony, or zero once the day has arrived.
