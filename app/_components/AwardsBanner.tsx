@@ -2,6 +2,7 @@
 
 import { useState, useSyncExternalStore } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { TOWN_CENTRE_AWARDS, daysUntilCeremony } from "@/app/_lib/awards";
 import { readStorage, writeStorage } from "@/app/_lib/safeStorage";
 import { useAwardsActive, useTodayInGreatYarmouth } from "./useAwardsActive";
@@ -19,6 +20,7 @@ function subscribeToDismissal() {
 export default function AwardsBanner() {
   const active = useAwardsActive();
   const today = useTodayInGreatYarmouth();
+  const pathname = usePathname();
   const [dismissedByUser, setDismissedByUser] = useState(false);
   const dismissedInSession = useSyncExternalStore(
     subscribeToDismissal,
@@ -33,6 +35,8 @@ export default function AwardsBanner() {
     setDismissedByUser(true);
   };
 
+  // Already within the awards section: a link to it would be pointless.
+  const onAwardsPage = pathname.startsWith("/awards");
   const days = daysUntilCeremony(today);
   const countdown =
     days === 0 ? "Tonight" : days === 1 ? "Tomorrow" : `In ${days} days`;
@@ -55,12 +59,14 @@ export default function AwardsBanner() {
           </span>
         </p>
         <span className="flex items-center gap-3">
-          <Link
-            href={TOWN_CENTRE_AWARDS.path}
-            className="inline-flex min-h-11 items-center rounded-full bg-white px-5 text-base font-bold text-secondary transition-colors hover:bg-cream"
-          >
-            Find out more
-          </Link>
+          {!onAwardsPage && (
+            <Link
+              href={TOWN_CENTRE_AWARDS.path}
+              className="inline-flex min-h-11 items-center rounded-full bg-white px-5 text-base font-bold text-secondary transition-colors hover:bg-cream"
+            >
+              Find out more
+            </Link>
+          )}
           <button
             type="button"
             onClick={dismiss}
