@@ -13,13 +13,6 @@ export const metadata = createPageMetadata({
 
 const pastEvents = [
   {
-    date: "12 November 2026",
-    title: "Town Centre Awards Ceremony 2026 - Retail & Business Awards",
-    speaker: "Committee Member, Bruce Sturrock in collaboration with the Civic Society of Great Yarmouth",
-    description:
-      "All 40 shortlisted businesses, each displaying a “shortlisted” sticker in their window, are invited to the ceremony, where the winner of each category will receive a framed certificate and the overall winner will be presented with a trophy.",
-  },
-  {
     date: "5 April 2022",
     title: "A Future for Our Great Historic Buildings",
     speaker: "Kit Martin, CBE",

@@ -46,7 +46,7 @@ export default function UpcomingTalks({ talks }: { talks: Talk[] }) {
           {talk.href && (
             <Link
               href={talk.href}
-              className="mt-4 inline-flex items-center gap-2 border-b border-secondary pb-1 text-sm font-bold text-primary transition-colors hover:text-secondary"
+              className="mt-4 inline-flex items-center gap-2 border-b border-secondary pb-1 text-base font-bold text-primary transition-colors hover:text-secondary"
             >
               Find out more
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
