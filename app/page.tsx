@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import AwardsModal from "./_components/AwardsModal";
 import { Button } from "./_components/Button";
 import PhotoGallery from "./_components/PhotoGallery";
 import { withBasePath } from "./_lib/basePath";
@@ -238,7 +237,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <AwardsModal />
     </>
   );
 }

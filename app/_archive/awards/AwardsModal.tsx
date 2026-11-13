@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { TOWN_CENTRE_AWARDS } from "@/app/_lib/awards";
+import { TOWN_CENTRE_AWARDS } from "./awards";
 import { readStorage, writeStorage } from "@/app/_lib/safeStorage";
 import { withBasePath } from "@/app/_lib/basePath";
 import { useAwardsActive } from "./useAwardsActive";

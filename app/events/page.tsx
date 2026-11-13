@@ -1,7 +1,6 @@
 import PageBanner from "@/app/_components/PageBanner";
 import Section from "@/app/_components/Section";
 import { Badge } from "@/app/_components/Card";
-import { TOWN_CENTRE_AWARDS } from "@/app/_lib/awards";
 import { createPageMetadata } from "@/app/_lib/site";
 import UpcomingTalks from "@/app/events/UpcomingTalks";
 
@@ -43,16 +42,6 @@ const upcomingTalks = [
     title: "Tales of the Unexpected: A Career in Heritage Conservation",
     speaker: "Lorraine Finch",
     description: "At the Old Rectory.",
-  },
-  {
-    date: "2026-11-12",
-    dateLabel: "Thursday 12 November 2026, 5.30pm for 6pm",
-    title: "Town Centre Awards Ceremony",
-    subtitle: "Winners of this year’s Town Centre Awards announced",
-    speaker: "Hosted by the Civic Society",
-    description:
-      `In the Assembly Room at the Town Hall — all ${TOWN_CENTRE_AWARDS.shortlistedCount} shortlisted shops, businesses and market stalls are invited.`,
-    href: TOWN_CENTRE_AWARDS.path,
   },
   {
     date: "2026-11-24",

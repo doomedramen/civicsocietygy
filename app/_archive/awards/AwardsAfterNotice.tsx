@@ -1,6 +1,6 @@
 "use client";
 
-import { TOWN_CENTRE_AWARDS, hasCeremonyPassed } from "@/app/_lib/awards";
+import { TOWN_CENTRE_AWARDS, hasCeremonyPassed } from "./awards";
 import { useTodayInGreatYarmouth } from "./useAwardsActive";
 
 // Shown at the top of the awards page once the ceremony day has passed,

@@ -3,7 +3,7 @@
 import { useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { TOWN_CENTRE_AWARDS, daysUntilCeremony } from "@/app/_lib/awards";
+import { TOWN_CENTRE_AWARDS, daysUntilCeremony } from "./awards";
 import { readStorage, writeStorage } from "@/app/_lib/safeStorage";
 import { useAwardsActive, useTodayInGreatYarmouth } from "./useAwardsActive";
 

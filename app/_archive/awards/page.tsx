@@ -3,10 +3,10 @@ import Link from "next/link";
 import PageBanner from "@/app/_components/PageBanner";
 import Section from "@/app/_components/Section";
 import { Badge, Card } from "@/app/_components/Card";
-import { awardCategories, TOWN_CENTRE_AWARDS } from "@/app/_lib/awards";
+import { awardCategories, TOWN_CENTRE_AWARDS } from "./awards";
 import { withBasePath } from "@/app/_lib/basePath";
 import { createPageMetadata } from "@/app/_lib/site";
-import AwardsAfterNotice from "@/app/_components/AwardsAfterNotice";
+import AwardsAfterNotice from "./AwardsAfterNotice";
 
 export const metadata = createPageMetadata({
   title: "Town Centre Awards",

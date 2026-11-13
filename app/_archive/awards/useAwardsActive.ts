@@ -1,7 +1,7 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
-import { isAwardsActive } from "@/app/_lib/awards";
+import { isAwardsActive } from "./awards";
 import { getTodayInGreatYarmouth } from "@/app/_lib/dates";
 
 function subscribeToClock(onStoreChange: () => void) {
